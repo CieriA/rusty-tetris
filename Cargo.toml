@@ -12,7 +12,7 @@ members = [
 [workspace.package]
 version = "0.1.0"
 edition = "2024"
-authors = ["Alessio Cieri"]
+authors = ["CieriA"]
 license = "MIT"
 repository = ""
 readme = "README.md"
