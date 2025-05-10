@@ -1,0 +1,17 @@
+[package]
+name = "engine"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+readme.workspace = true
+
+[dependencies]
+# Internal dependencies
+game.workspace = true
+matrix.workspace = true
+vecmath.workspace = true
+
+# External dependencies
+sdl2.workspace = true

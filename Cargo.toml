@@ -1,0 +1,30 @@
+[workspace]
+resolver = "3"
+members = [
+    "tetris",
+    "pieces",
+    "matrix",
+    "game",
+    "engine",
+    "vecmath",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Alessio Cieri"]
+license = "MIT"
+repository = ""
+readme = "README.md"
+
+[workspace.dependencies]
+# Internal dependencies
+pieces = { path = "pieces" }
+matrix = { path = "matrix" }
+game = { path = "game" }
+engine = { path = "engine" }
+vecmath = { path = "vecmath" }
+
+# External dependencies
+sdl2 = { version = "0.37.0", features = ["ttf"] }
+rand = "0.9.1"
