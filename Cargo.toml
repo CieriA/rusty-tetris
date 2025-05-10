@@ -14,7 +14,7 @@ version = "0.1.0"
 edition = "2024"
 authors = ["CieriA"]
 license = "MIT"
-repository = ""
+repository = "https://github.com/CieriA/rusty-tetris"
 readme = "README.md"
 
 [workspace.dependencies]
