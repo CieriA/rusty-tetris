@@ -7,7 +7,7 @@ A clean Tetris clone written in Rust using the SDL2 graphics library.
 - Classic Tetris game mechanics
 - Smooth 2D rendering via SDL2
 - Keyboard controls
-- Score system (?)
+- Score system
 
 ## Requirements
 
@@ -65,7 +65,7 @@ cargo doc --open
 ## License
 MIT License
 
-Copyright (c) 2025 Alessio Cieri
+Copyright (c) 2025 CieriA
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
