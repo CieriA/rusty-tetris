@@ -1,5 +1,8 @@
 use crate::Direction;
-use std::{ops::{Add, AddAssign}, fmt::Display};
+use std::{
+    fmt::Display,
+    ops::{Add, AddAssign},
+};
 
 /// Struct that represents a 2D point used to index a matrix or a vector to move a point.
 #[derive(Debug, Clone, Copy, Default)]
@@ -29,7 +32,7 @@ impl Point {
 impl Display for Point {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "({}, {})", self.x, self.y)
-    }   
+    }
 }
 
 impl From<(isize, isize)> for Point {

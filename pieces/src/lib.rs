@@ -1,14 +1,10 @@
 //! # Pieces
 //! Contains the struct def of the `TetrominoKind` and the `Tetromino`
 
-// TODO refactor
 pub mod tetromino;
 
-use vecmath::{
-    Direction,
-    Point,
-};
 pub use tetromino::Tetromino;
+use vecmath::{Direction, Point};
 
 /// Each type of pieces of the `Tetris` game.
 #[derive(Debug, Clone, Copy, Default)]
