@@ -5,15 +5,16 @@ A clean Tetris clone written in Rust using the SDL2 graphics library.
 ## Features
 
 - Classic Tetris game mechanics
-- Smooth 2D rendering via SDL2
+- 2D rendering via SDL2
 - Keyboard controls
+- Hard and Soft Drop
 - Score system
 
 ## Requirements
 
-- **Rust** (stable) — install via [rustup](https://rustup.rs)
-- **SDL2** — graphics and input
-- **SDL2_ttf** — for rendering text (e.g., score display)
+- **Rust** (stable) - install via [rustup](https://rustup.rs)
+- **SDL2** - graphics and input
+- **SDL2_ttf** - for rendering text
 
 ### SDL2 and SDL2_ttf installation
 
