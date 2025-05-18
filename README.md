@@ -1,6 +1,6 @@
 # Rust Tetris with SDL2
 
-A clean Tetris clone written in Rust using the SDL2 graphics library.
+A Tetris clone written in Rust using the SDL2 graphics library.
 
 ## Features
 
