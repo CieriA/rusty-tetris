@@ -44,6 +44,17 @@ cargo build --release
 cargo run --release
 ```
 
+Or, if you do **not** have Rust or SDL2, run the [binary file](binaries/release_tetris)
+with
+```bash
+./release_tetris
+```
+or
+```powershell
+.\release_tetris
+```
+while being on the [binaries](binaries) folder.
+
 ## Controls
 - Left Arrow / A — Move the piece left
 - Right Arrow / D — Move the piece right
