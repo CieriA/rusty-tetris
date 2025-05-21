@@ -55,6 +55,8 @@ or
 ```
 while being on the [binaries](binaries) folder.
 
+NOTE: the binary for now present is compiled with macOS (Apple Silicon).
+
 ## Controls
 - Left Arrow / A — Move the piece left
 - Right Arrow / D — Move the piece right
