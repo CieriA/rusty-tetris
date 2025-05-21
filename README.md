@@ -47,7 +47,7 @@ cargo run --release
 Or, if you do **not** have Rust or SDL2, run the [binary file](binaries/release_tetris)
 with
 ```bash
-chmod +x releasw_tetris
+chmod +x release_tetris
 ./release_tetris
 ```
 while being on the [binaries](binaries) folder.
