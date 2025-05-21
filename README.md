@@ -64,4 +64,4 @@ cargo doc --open
 ```
 
 ## License
-[ISC License](License)
+[ISC License](LICENSE)
