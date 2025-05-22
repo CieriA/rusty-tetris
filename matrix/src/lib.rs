@@ -91,7 +91,7 @@ impl Matrix {
         for coord in tetromino.position() {
             if self[coord].is_some() {
                 println!("You lost.");
-                process::exit(1);
+                process::exit(0);
             }
             self[coord] = Some(tetromino.get_color());
         }

@@ -122,14 +122,18 @@ impl Game {
         true
     }
     
-    /// Moves the `cur_tetromino` into the matrix when it touches the ground.
+    /// Moves the `cur_tetromino` into the matrix. Must be used if the tetromino touches the ground
+    /// or a tetromino
+    /// 
+    /// # Panics
+    /// if one or more of its cells are already occupied
     pub fn place(&mut self) {
         let Some(tetromino) = self.cur_tetromino.take() else {
             panic!("cur_tetromino is None");
         };
         if tetromino.position().iter().any(|point| point.y < 0 || point.x < 0) {
             println!("You lost");
-            process::exit(1);
+            process::exit(0);
         }
         self.matrix.place_piece(tetromino);
         self.score += random_range(3..=8);
