@@ -164,7 +164,7 @@ fn draw_block(coord: Point) -> Rect {
     )
 }
 
-fn text(canvas: &mut Canvas<Window>, ttf: &Sdl2TtfContext, x: i32, y: i32, text: &str, font_path: &str) -> Result<(), Box<dyn std::error::Error>> {
+fn text(canvas: &mut Canvas<Window>, ttf: &Sdl2TtfContext, x: i32, y: i32, text: &str, font_path: &str) -> Result<(), Box<dyn StdError>> {
     let texture_creator = canvas.texture_creator();
 
     let font = ttf.load_font(font_path, 50)?;
