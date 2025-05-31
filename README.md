@@ -34,7 +34,7 @@ Make sure the .ddl files are in your `PATH` or project folder at runtime.
 ## Building the Project
 Clone the repository and build in release mode:
 ```bash
-git clone https://github.come/{io}/rusty-tetris
+git clone https://github.come/CieriA/rusty-tetris
 cd rusty-tetris
 cargo build --release
 ```
