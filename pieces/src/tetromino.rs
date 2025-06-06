@@ -63,7 +63,7 @@ impl Tetromino {
     pub fn push_down(&mut self) {
         self.offset += Point::new(0, 1);
     }
-    
+
     /// Moves `self` **in place** left/right based on the input
     pub fn move_lr(&mut self, direction: Direction) {
         match direction {
@@ -83,7 +83,7 @@ impl Tetromino {
         self.direction = self.direction.rotate(rotation);
         self.cells = self.kind.rotated_shape(self.direction);
     }
-    
+
     pub fn position(&self) -> [Point; 4] {
         self.cells.map(|cell| cell + self.offset)
     }
