@@ -21,7 +21,7 @@ type Grid = [[Option<Color>; Matrix::WIDTH]; Matrix::HEIGHT];
 /// The game's matrix.
 /// 
 /// Contains a representation of each already placed piece in a 2D array.
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct Matrix(Grid);
 
 impl Index<Point> for Matrix {
@@ -65,10 +65,6 @@ impl IndexMut<usize> for Matrix {
 impl Matrix {
     pub const WIDTH: usize = 10;
     pub const HEIGHT: usize = 20;
-    
-    pub fn new() -> Self {
-        Self(Grid::default())
-    }
 
     /// Returns an iterator over the matrix.
     /// 
@@ -111,7 +107,7 @@ impl Matrix {
             if !self.in_bounds(coord) {
                 return true;
             }
-            if let Some(_) = self[coord] {
+            if self[coord].is_some() {
                 return true;
             }
         }

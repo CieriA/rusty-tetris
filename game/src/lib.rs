@@ -15,7 +15,7 @@ use rand::random_range;
 use sdl2::keyboard::Keycode;
 
 /// Game struct. Handles the game logic and the score.
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct Game {
     pub matrix: Matrix,
     pub cur_tetromino: Option<Tetromino>,
@@ -30,11 +30,9 @@ impl Game {
     
     pub fn new() -> Self {
         let mut game = Self {
-            matrix: Matrix::new(),
-            cur_tetromino: None,
             bag: Vec::with_capacity(Tetromino::SIZE),
             tick: Self::BASE_TICK,
-            score: 0,
+            ..Default::default()
         };
         game.refill_bag();
         game.put_tetromino();
@@ -81,7 +79,7 @@ impl Game {
     
     fn check_rows(&mut self) {
         for (i, row) in self.matrix.iter().enumerate().rev() {
-            if row.iter().all(|block| matches!(block, Some(_))) {
+            if row.iter().all(|block| block.is_some()) {
                 self.score += 100;
                 self.matrix.push_down(i);
                 break;
@@ -114,7 +112,7 @@ impl Game {
     /// `true` if it can drop and `false` otherwise
     pub fn try_drop(&mut self) -> bool {
         let mut new = self.cur_tetromino.clone().unwrap();
-        new.drop();
+        new.push_down();
         if self.matrix.will_collide(&new) {
             return false;
         }
@@ -137,7 +135,7 @@ impl Game {
         }
         self.matrix.place_piece(tetromino);
         self.score += random_range(3..=8);
-        while self.matrix.iter().any(|row| row.iter().all(|block| matches!(block, Some(_)))) {
+        while self.matrix.iter().any(|row| row.iter().all(|block| block.is_some())) {
             self.check_rows();
         }
         self.put_tetromino();
@@ -155,7 +153,7 @@ impl Game {
     pub fn get_ghost(&self) -> Option<Tetromino> {
         let mut ghost = self.cur_tetromino.clone()?;
         while !self.matrix.will_collide(&ghost) {
-            ghost.drop();
+            ghost.push_down();
         }
         ghost.offset.y -= 1;
         Some(ghost)

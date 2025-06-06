@@ -60,7 +60,7 @@ impl Tetromino {
     }
 
     /// Drops `self`'s y **in place** by 1.
-    pub fn drop(&mut self) {
+    pub fn push_down(&mut self) {
         self.offset += Point::new(0, 1);
     }
     
