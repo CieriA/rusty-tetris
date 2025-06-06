@@ -79,7 +79,7 @@ impl Game {
     
     fn check_rows(&mut self) {
         for (i, row) in self.matrix.iter().enumerate().rev() {
-            if row.iter().all(|block| block.is_some()) {
+            if row.iter().all(Option::is_some) {
                 self.score += 100;
                 self.matrix.push_down(i);
                 break;
@@ -135,7 +135,7 @@ impl Game {
         }
         self.matrix.place_piece(tetromino);
         self.score += random_range(3..=8);
-        while self.matrix.iter().any(|row| row.iter().all(|block| block.is_some())) {
+        while self.matrix.iter().any(|row| row.iter().all(Option::is_some)) {
             self.check_rows();
         }
         self.put_tetromino();
