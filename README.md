@@ -1,16 +1,13 @@
 # Rust Tetris with SDL2
-
 A Tetris clone written in Rust using the SDL2 graphics library.
 
 ## Features
-
 - Classic Tetris game mechanics
 - Smooth 2D rendering via SDL2
 - Keyboard controls
 - Score system
 
 ## Requirements
-
 - **Rust** (stable) — install via [rustup](https://rustup.rs)
 - **SDL2** — graphics and input
 - **SDL2_ttf** — for rendering text (e.g., score display)
@@ -63,4 +60,4 @@ cargo doc --open
 ```
 
 ## License
-[ISC License](LICENSE)
+This project is licensed under the ISC License. For more info see the [LICENSE](LICENSE) file.
