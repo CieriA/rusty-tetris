@@ -11,9 +11,9 @@ pub enum Rotation {
 pub enum Direction {
     #[default]
     Up,
+    Right,
     Down,
     Left,
-    Right,
 }
 
 impl From<usize> for Direction {
@@ -27,21 +27,11 @@ impl From<usize> for Direction {
         }
     }
 }
-impl From<Direction> for usize {
-    fn from(value: Direction) -> Self {
-        match value {
-            Direction::Up => 0,
-            Direction::Right => 1,
-            Direction::Down => 2,
-            Direction::Left => 3,
-        }
-    }
-}
 
 impl Direction {
     /// Rotate the direction by 90 degrees based on input (clockwise/counterclockwise).
     pub fn rotate(self, rotation: Rotation) -> Self {
-        let i: usize = self.into();
+        let i = self as usize;
         match rotation {
             Rotation::Clockwise => Self::from((i + 1) % 4),
             Rotation::CounterClockwise => Self::from((i + 3) % 4),
