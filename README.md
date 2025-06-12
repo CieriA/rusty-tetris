@@ -16,7 +16,7 @@ A Tetris clone written in Rust using the SDL2 graphics library.
 
 #### Linux
 ```bash
-sudo apt install llibsdl2-dev libsdl2-ttf-dev
+sudo apt install libsdl2-dev libsdl2-ttf-dev
 ```
 
 #### macOS (using Homebrew)
