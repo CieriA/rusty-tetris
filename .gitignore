@@ -1,8 +1,14 @@
 # Rust
 target/
+*.pbd
 **/*.rs.bk
 Cargo.lock
+**/Cargo.lock
 
 # IDE
 .idea/
 *.iml
+*.iws
+*.ipr
+out/
+.idea_modules/

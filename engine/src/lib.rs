@@ -57,9 +57,7 @@ impl Engine {
             // event loop
             for event in event_pump.poll_iter() {
                 match event {
-                    Event::Quit { .. } => {
-                        break 'running;
-                    }
+                    Event::Quit { .. } => break 'running,
                     KeyDown { keycode: Some(key), .. } => {
                         if key == Keycode::Escape {
                             break 'running;
