@@ -60,6 +60,7 @@ impl Tetromino {
     }
 
     /// Drops `self`'s y **in place** by 1.
+    #[inline(always)]
     pub fn push_down(&mut self) {
         self.offset += Point::new(0, 1);
     }
@@ -84,6 +85,7 @@ impl Tetromino {
         self.cells = self.kind.rotated_shape(self.direction);
     }
 
+    #[inline(always)]
     pub fn position(&self) -> [Point; 4] {
         self.cells.map(|cell| cell + self.offset)
     }

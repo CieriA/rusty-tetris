@@ -12,7 +12,8 @@ pub struct Point {
 }
 
 impl Point {
-    pub fn new(x: isize, y: isize) -> Self {
+    #[inline(always)]
+    pub const fn new(x: isize, y: isize) -> Self {
         Self { x, y }
     }
     /// Rotates `self` around a given `center` to the given `direction`
@@ -30,12 +31,14 @@ impl Point {
 }
 
 impl Display for Point {
+    #[inline(always)]
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "({}, {})", self.x, self.y)
     }
 }
 
 impl From<(isize, isize)> for Point {
+    #[inline(always)]
     fn from(tuple: (isize, isize)) -> Self {
         Self::new(tuple.0, tuple.1)
     }
@@ -43,12 +46,14 @@ impl From<(isize, isize)> for Point {
 
 impl Add for Point {
     type Output = Self;
+    #[inline(always)]
     fn add(self, other: Self) -> Self::Output {
         Self::new(self.x + other.x, self.y + other.y)
     }
 }
 
 impl AddAssign for Point {
+    #[inline(always)]
     fn add_assign(&mut self, other: Self) {
         self.x += other.x;
         self.y += other.y;

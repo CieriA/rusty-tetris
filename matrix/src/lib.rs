@@ -26,25 +26,17 @@ pub struct Matrix(Grid);
 
 impl Index<Point> for Matrix {
     type Output = Option<Color>;
+    #[inline]
     fn index(&self, index: Point) -> &Self::Output {
-        assert!(
-            index.y >= 0 &&
-            index.x >= 0 &&
-            index.y < Self::HEIGHT as isize &&
-            index.x < Self::WIDTH as isize,
-            "value of (x, y): {}", index);
+        assert!(Self::in_bounds(index), "value of (x, y): {}", index);
         &self.0[index.y as usize][index.x as usize]
     }
 }
 
 impl IndexMut<Point> for Matrix {
+    #[inline]
     fn index_mut(&mut self, index: Point) -> &mut Self::Output {
-        assert!(
-            index.y >= 0 &&
-            index.x >= 0 &&
-            index.y < Self::HEIGHT as isize &&
-            index.x < Self::WIDTH as isize,
-            "value of (x, y): {}", index);
+        assert!(Self::in_bounds(index), "value of (x, y): {}", index);
         &mut self.0[index.y as usize][index.x as usize]
     }   
 }
@@ -69,6 +61,7 @@ impl Matrix {
     /// Returns an iterator over the matrix.
     /// 
     /// The iterator yields all items from start to end.
+    #[inline(always)]
     pub fn iter(&self) -> core::slice::Iter<[Option<Color>; Self::WIDTH]> {
         self.0.iter()
     }
@@ -93,7 +86,8 @@ impl Matrix {
         }
     }
     /// Returns `true` if the given coordinate is in the bounds of the matrix, `false` otherwise.
-    fn in_bounds(&self, coord: Point) -> bool {
+    #[inline]
+    fn in_bounds(coord: Point) -> bool {
         coord.y >= 0 &&
         coord.x >= 0 &&
         coord.y < Self::HEIGHT as isize &&
@@ -104,7 +98,7 @@ impl Matrix {
     /// `false` otherwise.
     pub fn will_collide(&self, tetromino: &Tetromino) -> bool {
         for coord in tetromino.position() {
-            if !self.in_bounds(coord) {
+            if !Self::in_bounds(coord) {
                 return true;
             }
             if self[coord].is_some() {

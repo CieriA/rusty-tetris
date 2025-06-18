@@ -42,12 +42,14 @@ impl Game {
     /// Refills the bag when it is empty with all the 7 new variants shuffled
     /// # Panics
     /// when the `bag` is not empty
+    #[inline]
     pub fn refill_bag(&mut self) {
         assert!(self.bag.is_empty());
         self.bag.extend_from_slice(&Tetromino::bag());
     }
     
     /// Replace the `cur_tetromino` to the last tetromino in the bag if it is `None`
+    #[inline(always)]
     fn put_tetromino(&mut self) {
         self.cur_tetromino = self.bag.pop();
     }
